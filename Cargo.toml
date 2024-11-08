@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-powdr = { path = "../powdr/powdr", features = ["plonky3", "simd"] }
-powdr-plonky3 = { path = "../powdr/plonky3", features = ["nightly-features"] }
+powdr = { path = "../powdr2/powdr", features = ["plonky3", "plonky3-simd"] }
+powdr-plonky3 = { path = "../powdr2/plonky3", features = ["nightly-features"] }
 
 serde = { version = "1.0", default-features = false, features = [
   "alloc",

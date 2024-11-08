@@ -24,7 +24,10 @@ fn read_binary_file(file_path: &str) -> io::Result<Vec<u8>> {
 }
 
 fn recursion() {
-    let session = Session::new("./guest-rec", "powdr-target-rec");
+    let session = Session::builder()
+        .guest_path("./guest-rec")
+        .out_path("powdr-target-rec")
+        .build();
 
     let proof = read_binary_file("powdr-target/chunk_0/guest_proof.bin").unwrap();
     let vkey = read_binary_file("powdr-target/vkey.bin").unwrap();
@@ -66,7 +69,10 @@ fn recursion() {
 }
 
 fn basic_guest() {
-    let mut session = Session::new("./guest", "powdr-target")
+    let mut session = Session::builder()
+        .guest_path("./guest")
+        .out_path("powdr-target")
+        .build()
         .write(1, &1u8)
         .write(2, &2u8)
         .write(3, &3u8);

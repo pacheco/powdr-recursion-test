@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-powdr-riscv-runtime = { path = "../../powdr/riscv-runtime", features = [
+powdr-riscv-runtime = { path = "../../powdr2/riscv-runtime", features = [
   "std",
   "getrandom",
 ] }
