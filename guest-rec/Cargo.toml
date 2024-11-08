@@ -1,0 +1,23 @@
+[package]
+name = "plonky3_recursion"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+powdr-riscv-runtime = { path = "../../powdr/riscv-runtime", features = [
+  "std",
+  "getrandom",
+] }
+powdr-plonky3 = { path = "../../powdr/plonky3", features = [
+  "nightly-features",
+] }
+powdr-number = { path = "../../powdr/number" }
+indexmap = { version = "1.9.3", features = [
+  "std",
+] } # enabling std on indexmap since somehow it thinks we do not have std
+bincode = "1.3.3"
+
+[profile.release]
+debug = true
+
+[workspace]
