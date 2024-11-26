@@ -1,3 +1,4 @@
+use powdr::riscv::RuntimeLibs;
 use powdr::GoldilocksField;
 use powdr::Session;
 use powdr_plonky3::{verify2, FieldElementMap, Proof};
@@ -27,6 +28,7 @@ fn recursion() {
     let session = Session::builder()
         .guest_path("./guest-rec")
         .out_path("powdr-target-rec")
+        .precompiles(RuntimeLibs::new().with_poseidon().with_poseidon2())
         .build();
 
     let proof = read_binary_file("powdr-target/chunk_0/guest_proof.bin").unwrap();

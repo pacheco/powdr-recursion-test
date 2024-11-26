@@ -9,6 +9,7 @@ powdr-riscv-runtime = { path = "../../powdr2/riscv-runtime", features = [
   "getrandom",
 ] }
 powdr-plonky3 = { path = "../../powdr2/plonky3", features = [
+  "powdr-accel",
   "nightly-features",
 ] }
 powdr-number = { path = "../../powdr2/number" }
