@@ -11,7 +11,7 @@ fn main() {
     env_logger::init();
 
     // First run basic guest.
-    // basic_guest();
+    basic_guest();
 
     println!("GUEST DONE! ---------------------------------");
 
