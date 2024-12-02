@@ -4,15 +4,15 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-powdr-riscv-runtime = { path = "../../powdr2/riscv-runtime", features = [
+powdr-riscv-runtime = { path = "../../powdr_branch/riscv-runtime", features = [
   "std",
   "getrandom",
 ] }
-powdr-plonky3 = { path = "../../powdr2/plonky3", features = [
+powdr-plonky3 = { path = "../../powdr_branch/plonky3", features = [
   "powdr-accel",
   "nightly-features",
 ] }
-powdr-number = { path = "../../powdr2/number" }
+powdr-number = { path = "../../powdr_branch/number" }
 indexmap = { version = "1.9.3", features = [
   "std",
 ] } # enabling std on indexmap since somehow it thinks we do not have std
@@ -21,4 +21,5 @@ bincode = "1.3.3"
 [profile.release]
 debug = true
 
-[workspace]
+[patch.crates-io]
+# p3-goldilocks = { path = "/home/pacheco/powderlabs/Plonky3/goldilocks" }

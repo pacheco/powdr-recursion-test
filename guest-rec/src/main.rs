@@ -3,7 +3,7 @@ use powdr_number::GoldilocksField;
 
 use powdr_riscv_runtime::io::read;
 
-use powdr_plonky3::{verify2, FieldElementMap};
+use powdr_plonky3::{verify, FieldElementMap};
 
 static PROOF_CONTENT: &'static [u8] = include_bytes!("../../powdr-target/chunk_0/guest_proof.bin");
 static VKEY_CONTENT: &'static [u8] = include_bytes!("../../powdr-target/vkey.bin");
@@ -25,11 +25,11 @@ pub fn main() {
     let mut challenger = GoldilocksField::get_challenger();
     let public_inputs = read(4);
 
-    let _ = verify2::<GoldilocksField>(
+    let _ = verify::<GoldilocksField>(
         Some(&verifying_key),
         &split,
         &mut challenger,
         &proof,
-        &public_inputs,
+        public_inputs,
     );
 }

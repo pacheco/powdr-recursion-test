@@ -4,8 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-powdr = { path = "../powdr2/powdr", features = ["plonky3", "plonky3-simd"] }
-powdr-plonky3 = { path = "../powdr2/plonky3", features = ["nightly-features"] }
+powdr = { path = "../powdr_branch/powdr", features = ["plonky3", "plonky3-simd"] }
+powdr-plonky3 = { path = "../powdr_branch/plonky3", features = ["nightly-features"] }
+powdr-riscv-executor = { path = "../powdr_branch/riscv-executor" }
+
 
 serde = { version = "1.0", default-features = false, features = [
   "alloc",
@@ -19,3 +21,6 @@ bincode = "1.3.3"
 
 env_logger = "0.10.2"
 log = "0.4.17"
+
+[profile.release]
+debug = true
