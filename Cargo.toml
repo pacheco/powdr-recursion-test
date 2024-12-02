@@ -4,9 +4,15 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-powdr = { path = "../powdr_branch/powdr", features = ["plonky3", "plonky3-simd"] }
-powdr-plonky3 = { path = "../powdr_branch/plonky3", features = ["nightly-features"] }
-powdr-riscv-executor = { path = "../powdr_branch/riscv-executor" }
+powdr = { git = "https://github.com/powdr-labs/powdr.git", branch = "recursion-pacheco", features = [
+  "plonky3",
+  "plonky3-simd"
+] }
+powdr-plonky3 = { git = "https://github.com/powdr-labs/powdr.git", branch = "recursion-pacheco", features = [
+  "nightly-features",
+] }
+# powdr-plonky3 = { path = "../powdr_branch/plonky3", features = ["nightly-features"] }
+powdr-riscv-executor = { git = "https://github.com/powdr-labs/powdr.git", branch = "recursion-pacheco" }
 
 
 serde = { version = "1.0", default-features = false, features = [
